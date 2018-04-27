@@ -1,4 +1,4 @@
-import bold from '../bold/bold'
 export default {
-  'bold': bold
+  'bold': '<button name="bold">加粗</button>',
+  'italic': '<button name="italic">加粗</button>',
 }
