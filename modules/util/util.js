@@ -5,12 +5,19 @@ export default {
   append (container, tpl) {
     container.appendChild(tpl)
   },
-  generateNode (tpl, origin = false) {
-    let element = document.createElement('div')
-    element.innerHTML = tpl
-    return origin ? element.children : element
-  },
   isDomList (dom) {
     return dom instanceof HTMLCollection
+  },
+  getRangeInContainer (editor, range) {
+    if (!range) {
+      return
+    }
+    let node = range.commonAncestorContainer
+    while (node = node.parentNode) {
+      if (node.nodeType == 1 && node.id == editor.id) {
+       return true
+      }
+    }
+    return false
   }
 }

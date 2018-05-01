@@ -1,0 +1,32 @@
+function generateHtml(selector) {
+  let div = document.createElement('div')
+  div.innerHTML = selector
+  return div.children
+}
+class jQ {
+  constructor (selector) {
+    this.selector = selector
+    let result
+    if (selector instanceof jQ) {
+      return selector
+    }
+    const nodeType = selector.nodeType
+    if (nodeType == 1) {
+      result = [selector]
+    }
+    if (typeof selector == 'string') {
+      if (selector.indexOf('<') == 0) {
+        result = generateHtml(selector)
+      } else {
+        result = document.querySelectorAll(selector)
+      }
+    }
+    for (let i = 0, len = result.length; i < len; i++) {
+      this[i] = result[i]
+    }
+  }
+  children (index) {
+   return this[0].children[index]
+  }
+}
+export let $ = selector => new jQ(selector)
