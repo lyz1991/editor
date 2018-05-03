@@ -2,8 +2,8 @@ export default {
   query (selector) {
     return document.querySelector(selector)
   },
-  append (container, tpl) {
-    container.appendChild(tpl)
+  append (container, children) {
+    container.appendChild(children)
   },
   isDomList (dom) {
     return dom instanceof HTMLCollection

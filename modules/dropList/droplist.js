@@ -7,7 +7,7 @@ export default class DropList {
     frag.appendChild(ul)
     for (let i = 0, len = list.length; i < len; i++) {
       let li = document.createElement('li')
-      li.setAttribute('value', `<h${i+1}>`)
+      li.setAttribute('value', list[i].value)
       li.innerHTML = list[i].html
       ul.appendChild(li)
     }

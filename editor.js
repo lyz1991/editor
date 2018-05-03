@@ -5,12 +5,6 @@ new Editor('#editor', '#config', {
   bold: true,
   italic: true,
   strike: true,
-  horizontal: true
-})
-new Editor('#editor1', '#config1', {
-  bold: true,
-  italic: true,
-  strike: true,
   horizontal: true,
-  formatBlock: true
+  color: true
 })

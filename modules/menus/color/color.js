@@ -1,6 +1,8 @@
 import { $ } from '../../util/dom'
 export default {
-  name: 'formatBlock',
+  name: 'color',
+  tpl: '<li name="color"><i class="i-color"></i> </li>',
+  active: false,
   events: [{
     type: 'mouseenter',
     cb (e) {
@@ -14,6 +16,4 @@ export default {
       $(e.currentTarget).children(1).style.display = this.active ? 'none' : 'block'
     }
   }],
-  tpl: '<li name="formatBlock"><i class="i-header"></i> </li>',
-  active: false
 }
