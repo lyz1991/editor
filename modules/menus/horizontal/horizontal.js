@@ -1,4 +1,5 @@
 import DomUtil from '../../util/util'
+import S from '../../selections/selection'
 import { $ } from '../../util/dom'
 export default {
   name: 'horizontal',
@@ -11,10 +12,16 @@ export default {
       frag.appendChild(hr)
       DomUtil.append(frag, $('<p><br></p>')[0])
       if (!eidtor.orirange) {
-        return eidtor.container.appendChild(frag)
+        eidtor.container.appendChild(frag)
+        return
       }
-      DomUtil.insertAfter(frag, eidtor.orirange.commonAncestorContainer)
-      eidtor.change()
+      S.saveRange(eidtor.orirange)
+      if (!window.getSelection().toString() && !eidtor.orirange.commonAncestorContainer) {
+        DomUtil.insertAfter(frag, eidtor.orirange.commonAncestorContainer)
+        return eidtor.change()
+      }
+      eidtor.container.appendChild(frag)
+      return eidtor.change()
     }
   }]
 }

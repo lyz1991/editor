@@ -11,7 +11,7 @@ export default {
         S.saveRange(editor.orirange)
         if (!this.active) {
           this.active = true
-          Cmd.do('StrikeThrough', window.getSelection())
+          Cmd.do('StrikeThrough', window.getSelection(), editor)
         }
       }
     }
