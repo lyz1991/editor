@@ -21,8 +21,8 @@ export default class Menu {
   }
   init (editor, opt) {
     let frag = document.createDocumentFragment()
-    for (let key in opt ) {
-      DomUtil.append(frag, $(this[key].tpl)[0])
+    for (let value of opt['menus'] ) {
+      DomUtil.append(frag, $(this[value].tpl)[0])
     }
     DomUtil.append(editor.configContainer, frag)
     new DropList([{

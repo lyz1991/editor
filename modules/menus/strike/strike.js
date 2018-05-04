@@ -1,4 +1,6 @@
 import DomUtil from '../../util/util'
+import S from '../../selections/selection'
+import Cmd from '../../cmd/cmd'
 export default {
   name: 'strike',
   tpl: '<li name="strike"><i  class="i-strike"></i> </li>',
@@ -6,12 +8,10 @@ export default {
     type: 'click',
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
-        let sc = window.getSelection()
-        sc.removeAllRanges()
-        sc.addRange(editor.orirange)
+        S.saveRange(editor.orirange)
         if (!this.active) {
           this.active = true
-          return document.execCommand('StrikeThrough', window.getSelection())
+          Cmd.do('StrikeThrough', window.getSelection())
         }
       }
     }

@@ -1,17 +1,21 @@
 .config {
   display: flex;
-  position: absolute;
-  top: 0px;
+  top: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
   button {
     margin-left: 10px;
   }
 }
 .editor {
-  border: 1px solid black;
-  min-height: 500px;
-  margin-top: 30px;
+  border: 1px solid #ccc;
+  border-top: 0;
+  outline: 0;
+  height: 500px;
+  overflow: scroll;
   hr {
-    margin: 0 0 20px;
+    margin: 0 auto 20px auto;
+    width: 94%;
     border-top: 1px solid #d9d9d9;
   }
 }
@@ -20,7 +24,13 @@
   height: 20px;
   margin: 0 auto;
 }
+.eleContainer {
+  position: absolute;
+  background-color: white;
+  margin-top: 5px;
+}
 .color-container {
+  position: absolute;
   width: 30px;
   height: 240px;
   display: none;
@@ -35,6 +45,7 @@ li {
   width: 30px;
   padding: 3px 0px;
   text-align: center;
+  cursor: pointer;
 }
 @font-face {
   font-family: 'iconfont';  /* project id 647758 */

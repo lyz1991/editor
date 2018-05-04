@@ -1,4 +1,6 @@
 import DomUtil from '../../util/util'
+import Cmd from '../../cmd/cmd'
+import S from '../../selections/selection'
 export default {
   name: 'italic',
   tpl: '<li name="italic"><i class="i-italic"></i> </li>',
@@ -6,12 +8,10 @@ export default {
     type: 'click',
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
-        let sc = window.getSelection()
-        sc.removeAllRanges()
-        sc.addRange(editor.orirange)
+        S.saveRange(editor.orirange)
         if (!this.active) {
           this.active = true
-          return document.execCommand('italic', window.getSelection())
+          Cmd.do('italic', window.getSelection())
         }
       }
     }

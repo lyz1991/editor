@@ -21,9 +21,7 @@ export default {
     return false
   },
   insertAfter(newElement, targetElement){
-    console.log(targetElement)
     let parent = targetElement.parentNode
-    console.log(parent)
     if(parent.lastChild == targetElement){
       parent.appendChild(newElement);
     }else{

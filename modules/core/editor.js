@@ -2,10 +2,11 @@ import DomUtil from '../util/util'
 import { $ } from '../util/dom'
 import Menu from '../MenuList'
 export default class Editor {
-  constructor (selector, selector2, opt = {}) {
+  constructor (selector, menuContainer, opt = {}) {
     this.container = DomUtil.query(selector)
     this.id = this.container.id
-    this.configContainer = DomUtil.query(selector2)
+    this.configContainer = DomUtil.query(menuContainer)
+    this.change = opt.change
     new Menu(this, opt)
     this._initDom(selector)
     this._bindEvent(this)
