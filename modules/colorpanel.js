@@ -1,9 +1,9 @@
-import S from '../../selections/selection'
-import DomUtil from '../../util/util'
+import S from './selections/selection'
+import DomUtil from './util/util'
 const color = ['red', 'orange', 'yellow', 'green',
   'cyan', 'blue', 'purple', 'pink', 'gray', 'brown', 'yellowgreen', 'skyblue']
 export default {
- init (container, editor) {
+ init (container, editor, name) {
    let frag = document.createDocumentFragment()
    let colorContainer = document.createElement('ul')
    colorContainer.className = 'color-container'
@@ -15,14 +15,14 @@ export default {
      colorContainer.appendChild(span)
    }
    container.appendChild(frag)
-   this.bind(editor)
+   this.bind(editor, colorContainer, name)
  },
- bind(editor) {
-   document.querySelector('.color-container').addEventListener('click', e => {
+ bind(editor, container, name) {
+   container.addEventListener('click', e => {
      if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
        let color = e.target.style.backgroundColor
        S.saveRange(editor.orirange)
-       document.execCommand('ForeColor', false, color)
+       document.execCommand(name, false, color)
      }
    })
  }

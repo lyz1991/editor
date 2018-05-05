@@ -7,7 +7,8 @@ import strike from './menus/strike/strike'
 import h from './menus/header/header'
 import horizontal from './menus/horizontal/horizontal'
 import DropList from './dropList/droplist'
-import Color from './menus/color/colorpanel'
+import BgColor from './menus/bgColor/bgcolor'
+import Color from './colorpanel'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -16,12 +17,15 @@ export default class Menu {
     this.formatBlock = h
     this.color = color
     this.horizontal = horizontal
+    this.BgColor = BgColor
     this.init(editor, opt)
-    Color.init(DomUtil.query("li[name='color']"), editor)
+    Color.init(DomUtil.query("li[name='color']"), editor, 'ForeColor')
+    Color.init(DomUtil.query("li[name='BackColor']"), editor, 'BackColor')
   }
   init (editor, opt) {
     let frag = document.createDocumentFragment()
     for (let value of opt['menus'] ) {
+      console.log(value)
       DomUtil.append(frag, $(this[value].tpl)[0])
     }
     DomUtil.append(editor.configContainer, frag)
