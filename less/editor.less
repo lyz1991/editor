@@ -1,0 +1,87 @@
+@import "./icon";
+.config {
+  display: flex;
+  top: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  button {
+    margin-left: 10px;
+  }
+}
+.editor {
+  border: 1px solid #ccc;
+  border-top: 0;
+  outline: 0;
+  height: 500px;
+  overflow: scroll;
+  p {
+    width: 94%;
+    margin: 0 auto;
+  }
+  hr {
+    margin: 0 auto 20px auto;
+    width: 94%;
+    border-top: 1px solid #d9d9d9;
+  }
+}
+.color-item {
+  width: 15px;
+  height: 20px;
+  margin: 0 auto;
+  display: inline-block;
+}
+.eleContainer {
+  position: absolute;
+  background-color: white;
+  margin-top: 5px;
+}
+.color-container {
+  position: absolute;
+  margin: 3px auto 0 -25px;
+  left: 50%;
+  background-color: #c0c0c0;
+  width: 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  display: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+li {
+  width: 30px;
+  padding: 3px 0px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+button {
+  padding: 5px 10px;
+  border-radius: 20px;
+  outline: none;
+}
+.dialog {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: hsla(0,0%,100%,.7);
+  .container {
+    width: 412px;
+    padding: 15px 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    .item {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}

@@ -1,71 +1,13 @@
-.config {
-  display: flex;
-  top: 0;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  button {
-    margin-left: 10px;
-  }
-}
-.editor {
-  border: 1px solid #ccc;
-  border-top: 0;
-  outline: 0;
-  height: 500px;
-  overflow: scroll;
-  p {
-    width: 94%;
-    margin: 0 auto;
-  }
-  hr {
-    margin: 0 auto 20px auto;
-    width: 94%;
-    border-top: 1px solid #d9d9d9;
-  }
-}
-.color-item {
-  width: 15px;
-  height: 20px;
-  margin: 0 auto;
-  display: inline-block;
-}
-.eleContainer {
-  position: absolute;
-  background-color: white;
-  margin-top: 5px;
-}
-.color-container {
-  position: absolute;
-  margin: 3px auto 0 -25px;
-  left: 50%;
-  background-color: #c0c0c0;
-  width: 50px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  display: none;
-}
-* {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-li {
-  width: 30px;
-  padding: 3px 0px;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-}
 @font-face {
   font-family: 'iconfont';  /* project id 647758 */
-  src: url('//at.alicdn.com/t/font_647758_33tggmqd6mndn29.eot');
-  src: url('//at.alicdn.com/t/font_647758_33tggmqd6mndn29.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_647758_33tggmqd6mndn29.woff') format('woff'),
-  url('//at.alicdn.com/t/font_647758_33tggmqd6mndn29.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_647758_33tggmqd6mndn29.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_647758_6n71w5a1bs5uerk9.eot');
+  src: url('//at.alicdn.com/t/font_647758_6n71w5a1bs5uerk9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_647758_6n71w5a1bs5uerk9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_647758_6n71w5a1bs5uerk9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_647758_6n71w5a1bs5uerk9.svg#iconfont') format('svg');
 }
-.i-bold,.i-header, .i-horizontal, .i-italic, .i-strike,.i-color,.i-restore,.i-bgcolor, .i-href, .i-face {
+.i-bold,.i-header, .i-horizontal, .i-italic, .i-strike,.i-color,.i-restore,
+.i-bgcolor, .i-href, .i-face, .i-charactor{
   font-family: 'iconfont';
   font-style: normal;
   font-size: 12px;
@@ -85,6 +27,9 @@ content: "\e6d9";
 .i-header:before {
   content: "\e66f";
 }
+.i-charactor:before {
+content: '\e601';
+}
 .i-color:before {
 content: "\e677";
 }
@@ -99,18 +44,4 @@ content: "\e677";
 }
 .i-face:before{
   content: '\e64e';
-}
-.dialog {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(255,255,255,.9);
-  .container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-  }
 }

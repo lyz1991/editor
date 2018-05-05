@@ -16,6 +16,7 @@ export default class Editor {
   }
   _bindEvent (editor) {
     this.container.addEventListener('blur', (e) => {
+      console.log('blur')
       this.orirange = window.getSelection().getRangeAt(0)
     })
   }

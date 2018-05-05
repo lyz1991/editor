@@ -9,11 +9,12 @@ export default class Dialog {
       this.prevent()
       return window.Dialog = this
     }
-    window.Dialog.show(tpl)
+    window.Dialog.show(tpl, cb)
   }
-  show (tpl) {
+  show (tpl, cb) {
     this.id.innerHTML = tpl
     this.id.style.display = 'block'
+    cb && cb()
     this.prevent(tpl)
   }
   bind () {

@@ -29,7 +29,6 @@ export default class Menu {
   init (editor, opt) {
     let frag = document.createDocumentFragment()
     for (let value of opt['menus'] ) {
-      console.log(value)
       DomUtil.append(frag, $(this[value].tpl)[0])
     }
     DomUtil.append(editor.configContainer, frag)

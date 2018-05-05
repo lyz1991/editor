@@ -3,8 +3,16 @@ import Cmd from '../../cmd/cmd'
 import S from '../../selections/selection'
 import Dialog from '../../Common/dialog'
 const tpl = `<div class="container">
+<h3>插入链接</h3>
+<div class="item">
+<span><i class="i-href"></i></span>
 <input type="text" id="href"/> 
-<input type="text" id="val"> <button id="sure">确定</button></div>`
+</div>
+<div class="item">
+<span><i class="i-charactor"></i></span>
+<input type="text" id="val"> 
+</div>
+<button id="sure">确定</button></div>`
 export default {
   name: 'href',
   active: false,
@@ -16,7 +24,7 @@ export default {
         document.getElementById('sure').addEventListener('click', function () {
           window.Dialog.hide()
           S.saveRange(editor.orirange)
-          Cmd.do('insertHTML', "<a href="+ document.getElementById('href').value + ">"+document.getElementById('val').value + "</a>", editor)
+          Cmd.do('insertHTML', `<a href="${document.getElementById('href').value}">${document.getElementById('val').value}</a>`, editor)
         })
       })
     }
