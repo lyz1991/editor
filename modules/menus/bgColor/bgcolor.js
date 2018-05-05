@@ -5,13 +5,11 @@ export default {
   events: [{
     type: 'mouseenter',
     cb (e) {
-      console.log($(e.currentTarget).children(1))
       $(e.currentTarget).children(1).style.display = 'flex'
     }
   }, {
     type: 'mouseleave',
     cb (e) {
-      console.log(22)
       $(e.currentTarget).children(1).style.display = 'none'
     }
   }],

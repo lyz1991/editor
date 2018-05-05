@@ -9,6 +9,8 @@ import horizontal from './menus/horizontal/horizontal'
 import DropList from './dropList/droplist'
 import BgColor from './menus/bgColor/bgcolor'
 import Color from './colorpanel'
+import face from './menus/face/face'
+import Href from './menus/href/href'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -18,6 +20,8 @@ export default class Menu {
     this.color = color
     this.horizontal = horizontal
     this.BgColor = BgColor
+    this.href = Href
+    this.face = face
     this.init(editor, opt)
     Color.init(DomUtil.query("li[name='color']"), editor, 'ForeColor')
     Color.init(DomUtil.query("li[name='BackColor']"), editor, 'BackColor')
