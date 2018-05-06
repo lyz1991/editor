@@ -4,16 +4,12 @@ import S from '../../selections/selection'
 export default {
   name: 'bold',
   tpl: '<li name="bold"><i class="i-bold"></i> </li>',
-  active: false,
   events: [{
     type: 'click',
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
         S.saveRange(editor.orirange)
-        if (!this.active) {
-          this.active = true
-          Cmd.do('bold', window.getSelection(), editor)
-        }
+        Cmd.do('bold', window.getSelection(), editor)
       }
     }
   }]

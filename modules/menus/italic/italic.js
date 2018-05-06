@@ -9,12 +9,8 @@ export default {
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
         S.saveRange(editor.orirange)
-        if (!this.active) {
-          this.active = true
-          Cmd.do('italic', window.getSelection(), editor)
-        }
+        Cmd.do('italic', window.getSelection(), editor)
       }
     }
-  }],
-  active: false
+  }]
 }
