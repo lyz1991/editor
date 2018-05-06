@@ -20,6 +20,13 @@ export default class Editor {
         this.orirange = window.getSelection().getRangeAt(0)
       })
     })
+    this.container.addEventListener('keydown', e => {
+      if (e.keyCode == 8) {
+        if (DomUtil.trim(this.container.innerHTML) == '<p><br></p>') {
+          e.preventDefault()
+        }
+      }
+    })
 
   }
 }

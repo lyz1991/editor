@@ -27,6 +27,9 @@ export default {
     }else{
       parent.insertBefore(newElement, targetElement.nextSibling);
     }
+  },
+  trim (str) {
+    return str.trim()
   }
 
 }
