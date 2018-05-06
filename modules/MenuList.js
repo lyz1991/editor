@@ -11,6 +11,7 @@ import BgColor from './menus/bgColor/bgcolor'
 import Color from './colorpanel'
 import face from './menus/face/face'
 import Href from './menus/href/href'
+import Font from './menus/font/font'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -22,6 +23,7 @@ export default class Menu {
     this.BgColor = BgColor
     this.href = Href
     this.face = face
+    this.font = Font
     this.init(editor, opt)
     Color.init(DomUtil.query("li[name='color']"), editor, 'ForeColor')
     Color.init(DomUtil.query("li[name='BackColor']"), editor, 'BackColor')
@@ -44,7 +46,17 @@ export default class Menu {
     },{
       html: 'H4',
       value: "<h4>"
-    }], editor.configContainer.querySelector("li[name='formatBlock']"), editor)
+    }], editor.configContainer.querySelector("li[name='formatBlock']"), editor ,'formatBlock')
+    new DropList([{
+      html: '宋体',
+      value: "宋体"
+    },{
+      html: '微软雅黑',
+      value: "微软雅黑"
+    },{
+      html: 'Arial',
+      value: "Arial"
+    }], editor.configContainer.querySelector("li[name='font']"), editor, 'FontName')
     this.bind(editor)
   }
   bind (editor) {

@@ -1,7 +1,7 @@
 import S from '../selections/selection'
 import cmd from '../cmd/cmd'
 export default class DropList {
-  constructor (list,  container, editor) {
+  constructor (list,  container, editor, name) {
     let frag = document.createDocumentFragment()
     let ul = document.createElement('ul')
     ul.className = 'eleContainer'
@@ -14,13 +14,13 @@ export default class DropList {
       ul.appendChild(li)
     }
     container.appendChild(frag)
-    this.bind(ul, editor)
+    this.bind(ul, editor, name)
   }
-  bind (el, editor) {
+  bind (el, editor, name) {
     el.addEventListener('click', function (e) {
       e.stopPropagation()
       S.saveRange(editor.orirange)
-      cmd.do('formatBlock', e.target.getAttribute('value'), editor)
+      cmd.do(name, e.target.getAttribute('value'), editor)
     })
   }
 }
