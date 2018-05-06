@@ -15,9 +15,11 @@ export default class Editor {
     DomUtil.append(this.container, $('<p><br></p>')[0])
   }
   _bindEvent (editor) {
-    this.container.addEventListener('blur', (e) => {
-      console.log('blur')
-      this.orirange = window.getSelection().getRangeAt(0)
+    this.container.addEventListener('mousedown', e => {
+      this.container.addEventListener('mouseleave', e => {
+        this.orirange = window.getSelection().getRangeAt(0)
+      })
     })
+
   }
 }
