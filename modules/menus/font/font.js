@@ -10,13 +10,13 @@ export default {
     type: 'mouseenter',
     cb (e) {
       this.active = false
-      $(e.currentTarget).children(1).style.display = this.active ? 'none' : 'block'
+      $(e.currentTarget).children('ul').style.display = this.active ? 'none' : 'block'
     }
   }, {
     type: 'mouseleave',
     cb (e) {
       this.active = true
-      $(e.currentTarget).children(1).style.display = this.active ? 'none' : 'block'
+      $(e.currentTarget).children('ul').style.display = this.active ? 'none' : 'block'
     }
   }]
 }

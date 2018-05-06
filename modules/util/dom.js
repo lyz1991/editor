@@ -25,8 +25,13 @@ class jQ {
       this[i] = result[i]
     }
   }
-  children (index) {
-   return this[0].children[index]
+  children (tag) {
+    for (let i = 0, len = this[0].children.length; i < len; i++) {
+      if (tag.toUpperCase() == this[0].children[i].nodeName) {
+        return this[0].children[i]
+      }
+    }
+    return {}
   }
 }
 export let $ = selector => new jQ(selector)

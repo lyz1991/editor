@@ -12,6 +12,7 @@ import Color from './colorpanel'
 import face from './menus/face/face'
 import Href from './menus/href/href'
 import Font from './menus/font/font'
+import Undo from './menus/undo/undo'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -20,9 +21,10 @@ export default class Menu {
     this.formatBlock = h
     this.color = color
     this.horizontal = horizontal
-    this.BgColor = BgColor
+    this.BackColor = BgColor
     this.href = Href
     this.face = face
+    this.undo = Undo
     this.font = Font
     this.init(editor, opt)
     Color.init(DomUtil.query("li[name='color']"), editor, 'ForeColor')
@@ -57,13 +59,15 @@ export default class Menu {
       html: 'Arial',
       value: "Arial"
     }], editor.configContainer.querySelector("li[name='font']"), editor, 'FontName')
-    this.bind(editor)
+    this.bind(editor, opt)
   }
-  bind (editor) {
+  bind (editor, opt) {
     let range = document.createRange()
-    for (let i in this) {
-      let dom = editor.configContainer.querySelector(`li[name=${this[i].name}]`)
-      this[i].events.forEach(env => {
+    for (let value of opt['menus']) {
+      let dom = editor.configContainer.querySelector(`li[name=${value}]`)
+      console.log(value)
+      console.log(dom)
+      this[value].events.forEach(env => {
         dom.addEventListener(env.type, (e) => {
           env.cb(e, editor)
         })
