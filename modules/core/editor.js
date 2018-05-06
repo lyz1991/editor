@@ -21,10 +21,13 @@ export default class Editor {
       })
     })
     this.container.addEventListener('keydown', e => {
+      console.log(e.keyCode)
       if (e.keyCode == 8) {
         if (DomUtil.trim(this.container.innerHTML) == '<p><br></p>') {
           e.preventDefault()
         }
+      }
+      if (e.keyCode == 13) {
       }
     })
 
