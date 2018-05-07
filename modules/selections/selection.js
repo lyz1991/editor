@@ -1,6 +1,5 @@
 export default {
   saveRange (range) {
-    console.log(range)
     if (!range) {
       return
     }

@@ -1,10 +1,10 @@
 import { $ }from '../util/dom'
 export default class Dialog {
-  init (tpl, cb) {
+  init (tpl, cb, hidecb) {
     if (!window.Dialog) {
       document.body.appendChild($(`<div class="dialog" id="dialog">${tpl}</div>`)[0])
       this.id = document.getElementById('dialog')
-      this.bind ()
+      this.bind (hidecb)
       cb && cb()
       this.prevent()
       return window.Dialog = this
@@ -17,9 +17,9 @@ export default class Dialog {
     cb && cb()
     this.prevent(tpl)
   }
-  bind () {
+  bind (cb) {
     this.id.addEventListener('click', function () {
-       window.Dialog.hide()
+       window.Dialog.hide(cb)
     })
   }
   prevent () {
@@ -27,8 +27,10 @@ export default class Dialog {
       e.stopPropagation()
     })
   }
-  hide () {
+  hide (cb) {
     this.id.style.display = 'none'
+    console.log(cb)
+    cb && cb()
   }
 
 

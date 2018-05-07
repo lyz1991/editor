@@ -26,6 +26,8 @@ export default {
           S.saveRange(editor.orirange)
           Cmd.do('insertHTML', `<a href="${document.getElementById('href').value}">${document.getElementById('val').value}</a>`, editor)
         })
+      }, function () {
+        editor.container.focus()
       })
     }
   }]

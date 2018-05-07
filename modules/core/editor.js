@@ -9,6 +9,8 @@ export default class Editor {
     this.configContainer = DomUtil.query(menuContainer)
     this.change = opt.change
     this.publish = opt.publish
+    this.container.focus()
+    this.orirange = window.getSelection().getRangeAt(0)
     new Menu(this, opt)
     this._initDom(selector)
     this._bindEvent(this)
@@ -21,14 +23,15 @@ export default class Editor {
       this.container.addEventListener('mouseleave', e => {
         this.orirange = window.getSelection().getRangeAt(0)
       })
-      this.container.addEventListener('keyup', e => {
-        this.orirange = window.getSelection().getRangeAt(0)
-        if (DomUtil.trim(this.container.innerHTML) == '') {
-          const $p = $('<p><br></p>')[0]
-          DomUtil.append(editor.container, $p)
-          S.createRange($p, false, editor)
-        }
-      })
+    })
+    this.container.addEventListener('keyup', e => {
+      this.orirange = window.getSelection().getRangeAt(0)
+      editor.change()
+      if (DomUtil.trim(this.container.innerHTML) == '') {
+        const $p = $('<p><br></p>')[0]
+        DomUtil.append(editor.container, $p)
+        S.createRange($p, false, editor)
+      }
     })
     this.container.addEventListener('keydown', e => {
       this.orirange = window.getSelection().getRangeAt(0)
@@ -40,8 +43,10 @@ export default class Editor {
       if (e.keyCode == 13) {
         e.preventDefault()
         const $p = $('<p><br></p>')[0]
-        console.log(this.orirange.commonAncestorContainer)
         DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
+        if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'BLOCKQUOTE') {
+          DomUtil.remove(editor.container, 'BLOCKQUOTE')
+        }
         S.createRange($p, false, editor)
       }
     })
