@@ -34,7 +34,7 @@ export default class Editor {
       if (e.keyCode == 13) {
         e.preventDefault()
         const $p = $('<p><br></p>')[0]
-        DomUtil.append(this.container, $p)
+        DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
         S.createRange($p, false, editor)
       }
     })
