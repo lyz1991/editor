@@ -23,6 +23,11 @@ export default class Editor {
       })
       this.container.addEventListener('keyup', e => {
         this.orirange = window.getSelection().getRangeAt(0)
+        if (DomUtil.trim(this.container.innerHTML) == '') {
+          const $p = $('<p><br></p>')[0]
+          DomUtil.append(editor.container, $p)
+          S.createRange($p, false, editor)
+        }
       })
     })
     this.container.addEventListener('keydown', e => {
@@ -35,6 +40,7 @@ export default class Editor {
       if (e.keyCode == 13) {
         e.preventDefault()
         const $p = $('<p><br></p>')[0]
+        console.log(this.orirange.commonAncestorContainer)
         DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
         S.createRange($p, false, editor)
       }
