@@ -8,6 +8,7 @@ export default class Editor {
     this.id = this.container.id
     this.configContainer = DomUtil.query(menuContainer)
     this.change = opt.change
+    this.publish = opt.publish
     new Menu(this, opt)
     this._initDom(selector)
     this._bindEvent(this)

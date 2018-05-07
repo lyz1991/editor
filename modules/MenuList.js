@@ -14,6 +14,7 @@ import Href from './menus/href/href'
 import Font from './menus/font/font'
 import Undo from './menus/undo/undo'
 import quote from './menus/quote/quote'
+import publish from './menus/publish/publish'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -28,6 +29,7 @@ export default class Menu {
     this.undo = Undo
     this.font = Font
     this.quote = quote
+    this.publish = publish
     this.init(editor, opt)
     Color.init(DomUtil.query("li[name='color']"), editor, 'ForeColor')
     Color.init(DomUtil.query("li[name='BackColor']"), editor, 'BackColor')
