@@ -1,6 +1,7 @@
 import DomUtil from '../util/util'
 import { $ } from '../util/dom'
 import Menu from '../MenuList'
+import S from '../selections/selection'
 export default class Editor {
   constructor (selector, menuContainer, opt = {}) {
     this.container = DomUtil.query(selector)
@@ -19,15 +20,22 @@ export default class Editor {
       this.container.addEventListener('mouseleave', e => {
         this.orirange = window.getSelection().getRangeAt(0)
       })
+      this.container.addEventListener('keyup', e => {
+        this.orirange = window.getSelection().getRangeAt(0)
+      })
     })
     this.container.addEventListener('keydown', e => {
-      console.log(e.keyCode)
+      this.orirange = window.getSelection().getRangeAt(0)
       if (e.keyCode == 8) {
         if (DomUtil.trim(this.container.innerHTML) == '<p><br></p>') {
           e.preventDefault()
         }
       }
       if (e.keyCode == 13) {
+        e.preventDefault()
+        const $p = $('<p><br></p>')[0]
+        DomUtil.append(this.container, $p)
+        S.createRange($p, false, editor)
       }
     })
 

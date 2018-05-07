@@ -20,6 +20,12 @@ export default {
     }
     return false
   },
+  getNode (range) {
+    if (range.nodeType == 1) {
+      return range
+    }
+    return range.parentNode
+  },
   insertAfter(newElement, targetElement){
     let parent = targetElement.parentNode
     if(parent.lastChild == targetElement){
