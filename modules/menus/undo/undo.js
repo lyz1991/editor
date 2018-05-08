@@ -13,6 +13,7 @@ export default {
           editor.record.pop()
         }
         editor.container.innerHTML = editor.record[editor.record.length - 1]
+        S.initRange(editor)
       }
     }
   }]

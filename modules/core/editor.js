@@ -57,7 +57,12 @@ export default class Editor {
          this.orirange.commonAncestorContainer.parentNode.nodeName.toUpperCase() == 'BLOCKQUOTE') {
          DomUtil.append(editor.container, $p)
        } else {
-         DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
+          if (this.orirange.commonAncestorContainer.id == this.id) {
+            DomUtil.append(this.container, $p)
+          } else {
+            DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
+          }
+
        }
         if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'BLOCKQUOTE') {
           DomUtil.remove(editor.container, 'BLOCKQUOTE')
