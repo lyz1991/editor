@@ -1,5 +1,6 @@
 import S from './selections/selection'
 import DomUtil from './util/util'
+import Cmd from './cmd/cmd'
 const color = ['red', 'orange', 'yellow', 'green',
   'cyan', 'blue', 'purple', 'pink', 'gray', 'brown', 'yellowgreen', 'skyblue']
 export default {
@@ -23,7 +24,7 @@ export default {
      if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
        let color = e.target.style.backgroundColor
        S.saveRange(editor.orirange)
-       document.execCommand(name, false, color)
+       Cmd.do(name, color, editor)
      }
    })
  }

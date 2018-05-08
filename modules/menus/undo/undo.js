@@ -9,7 +9,8 @@ export default {
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
         S.saveRange(editor.orirange)
-        Cmd.do('Undo', window.getSelection(), editor)
+        editor.record.pop()
+        editor.container.innerHTML = editor.record[editor.record.length - 1]
       }
     }
   }]

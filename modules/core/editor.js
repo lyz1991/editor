@@ -7,9 +7,18 @@ export default class Editor {
     this.container = DomUtil.query(selector)
     this.id = this.container.id
     this.configContainer = DomUtil.query(menuContainer)
-    this.change = opt.change
+    this.change = DomUtil.debounce(() => {
+      if (this.container.innerHTML != this.record[this.record.length - 1]) {
+        console.log('变了')
+        this.record.push(this.container.innerHTML)
+        opt.change && opt.change()
+      } else {
+        console.log('没变')
+      }
+    }, 800)
     this.publish = opt.publish
     this.container.focus()
+    this.record = ['<p><br></p>']
     this.orirange = window.getSelection().getRangeAt(0)
     new Menu(this, opt)
     this._initDom(selector)
@@ -32,6 +41,7 @@ export default class Editor {
         DomUtil.append(editor.container, $p)
         S.createRange($p, false, editor)
       }
+      this.change()
     })
     this.container.addEventListener('keydown', e => {
       this.orirange = window.getSelection().getRangeAt(0)

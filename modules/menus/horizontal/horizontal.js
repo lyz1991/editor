@@ -13,7 +13,7 @@ export default {
       DomUtil.append(frag, $('<p><br></p>')[0])
       if (!eidtor.orirange) {
         eidtor.container.appendChild(frag)
-        return
+        return eidtor.change()
       }
       S.saveRange(eidtor.orirange)
       if (!window.getSelection().toString() && !eidtor.orirange.commonAncestorContainer) {

@@ -47,6 +47,15 @@ export default {
         return container.removeChild(container.children[i])
       }
     }
+  },
+  debounce (fn, time) {
+    let t
+    return function () {
+      clearTimeout(t)
+      t = setTimeout(function () {
+        fn()
+      }, time)
+    }
   }
 
 }

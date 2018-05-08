@@ -8,7 +8,6 @@ export default {
     type: 'click',
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
-        console.log(editor.orirange)
         S.saveRange(editor.orirange)
         Cmd.do('bold', window.getSelection(), editor)
       }
