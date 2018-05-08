@@ -17,5 +17,13 @@ export default {
     range.collapse(iscontent)
     editor.orirange = range
     this.saveRange(range)
+  },
+  initRange (editor) {
+    console.log('ss')
+    const range = document.createRange()
+    range.selectNode(editor.container.lastChild)
+    range.collapse(false)
+    editor.orirange = range
+    this.saveRange(range)
   }
 }
