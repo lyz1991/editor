@@ -50,7 +50,10 @@ export default {
   },
   debounce (fn, time) {
     let t
-    return function () {
+    return function (need = true) {
+     if (!need) {
+       return fn()
+     }
       clearTimeout(t)
       t = setTimeout(function () {
         fn()
