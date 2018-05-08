@@ -9,7 +9,9 @@ export default {
     cb (e, editor) {
       if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
         S.saveRange(editor.orirange)
-        editor.record.pop()
+        if (editor.record.length > 1) {
+          editor.record.pop()
+        }
         editor.container.innerHTML = editor.record[editor.record.length - 1]
       }
     }

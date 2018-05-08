@@ -14,6 +14,7 @@ export default {
     } else {
       range.selectNodeContents(node)
     }
+    range.collapse(iscontent)
     editor.orirange = range
     this.saveRange(range)
   }

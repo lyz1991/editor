@@ -15,7 +15,7 @@ export default class Editor {
       } else {
         console.log('没变')
       }
-    }, 800)
+    }, 500)
     this.publish = opt.publish
     this.container.focus()
     this.record = ['<p><br></p>']
@@ -53,7 +53,12 @@ export default class Editor {
       if (e.keyCode == 13) {
         e.preventDefault()
         const $p = $('<p><br></p>')[0]
-        DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
+       if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'P' &&
+         this.orirange.commonAncestorContainer.parentNode.nodeName.toUpperCase() == 'BLOCKQUOTE') {
+         DomUtil.append(editor.container, $p)
+       } else {
+         DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
+       }
         if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'BLOCKQUOTE') {
           DomUtil.remove(editor.container, 'BLOCKQUOTE')
         }
