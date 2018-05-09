@@ -36,23 +36,17 @@ export default class Editor {
     })
     this.container.addEventListener('compositionstart', () => {
       composition = true
-      console.log(1)
     })
     this.container.addEventListener('compositionend', () => {
       composition = false
-      console.log(2)
+      if (!composition) {
+        this.checkHtml(editor)
+      }
     })
     this.container.addEventListener('keyup', e => {
       if (!composition) {
-        this.orirange = window.getSelection().getRangeAt(0)
-        if (DomUtil.trim(this.container.innerHTML) == '') {
-          const $p = $('<p><br></p>')[0]
-          DomUtil.append(editor.container, $p)
-          S.createRange($p, false, editor)
-        }
-        this.change()
+        this.checkHtml(editor)
       }
-
     })
     this.container.addEventListener('keydown', e => {
       this.orirange = window.getSelection().getRangeAt(0)
@@ -81,6 +75,15 @@ export default class Editor {
         S.createRange($p, false, editor)
       }
     })
-
   }
+  checkHtml (editor) {
+    this.orirange = window.getSelection().getRangeAt(0)
+    if (DomUtil.trim(this.container.innerHTML) == '') {
+      const $p = $('<p><br></p>')[0]
+      DomUtil.append(editor.container, $p)
+      S.createRange($p, false, editor)
+    }
+    this.change()
+  }
+
 }
