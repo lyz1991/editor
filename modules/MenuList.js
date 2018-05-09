@@ -15,6 +15,7 @@ import Font from './menus/font/font'
 import Undo from './menus/undo/undo'
 import quote from './menus/quote/quote'
 import publish from './menus/publish/publish'
+import upload from './menus/upload/upload'
 export default class Menu {
   constructor (editor, opt) {
     this.bold = bold
@@ -25,6 +26,7 @@ export default class Menu {
     this.horizontal = horizontal
     this.BackColor = BgColor
     this.href = Href
+    this.upload = upload
     this.face = face
     this.undo = Undo
     this.font = Font
