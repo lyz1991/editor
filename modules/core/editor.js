@@ -28,20 +28,31 @@ export default class Editor {
     DomUtil.append(this.container, $('<p><br></p>')[0])
   }
   _bindEvent (editor) {
+    let composition
     this.container.addEventListener('mousedown', e => {
       this.container.addEventListener('mouseleave', e => {
         this.orirange = window.getSelection().getRangeAt(0)
       })
     })
+    this.container.addEventListener('compositionstart', () => {
+      composition = true
+      console.log(1)
+    })
+    this.container.addEventListener('compositionend', () => {
+      composition = false
+      console.log(2)
+    })
     this.container.addEventListener('keyup', e => {
-      this.orirange = window.getSelection().getRangeAt(0)
-      editor.change()
-      if (DomUtil.trim(this.container.innerHTML) == '') {
-        const $p = $('<p><br></p>')[0]
-        DomUtil.append(editor.container, $p)
-        S.createRange($p, false, editor)
+      if (!composition) {
+        this.orirange = window.getSelection().getRangeAt(0)
+        if (DomUtil.trim(this.container.innerHTML) == '') {
+          const $p = $('<p><br></p>')[0]
+          DomUtil.append(editor.container, $p)
+          S.createRange($p, false, editor)
+        }
+        this.change()
       }
-      this.change()
+
     })
     this.container.addEventListener('keydown', e => {
       this.orirange = window.getSelection().getRangeAt(0)
