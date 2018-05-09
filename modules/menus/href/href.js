@@ -13,6 +13,12 @@ const tpl = `<div class="container">
 <input type="text" id="val"> 
 </div>
 <button id="sure">确定</button></div>`
+const check = () => {
+  if (document.querySelector('#href').value && document.querySelector('#val').value) {
+    return true
+  }
+  return false
+}
 export default {
   name: 'href',
   active: false,
@@ -24,7 +30,9 @@ export default {
         document.getElementById('sure').addEventListener('click', function () {
           window.Dialog.hide()
           S.saveRange(editor.orirange)
-          Cmd.do('insertHTML', `<a href="${document.getElementById('href').value}">${document.getElementById('val').value}</a>`, editor)
+          if (check()) {
+            Cmd.do('insertHTML', `<a href="${document.getElementById('href').value}">${document.getElementById('val').value}</a>`, editor)
+          }
         })
       }, function () {
         editor.container.focus()
