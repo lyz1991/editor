@@ -58,9 +58,10 @@ export default class Editor {
       }
       if (e.keyCode == 13) {
         e.preventDefault()
+        const elements = ['P', 'FONT', 'BLOCKQUOTE', 'SPAN']
         const $p = $('<p><br></p>')[0]
-       if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'P' &&
-         this.orirange.commonAncestorContainer.parentNode.nodeName.toUpperCase() == 'BLOCKQUOTE') {
+       if (this.orirange.commonAncestorContainer.nodeName == 'P' &&
+         elements.indexOf(this.orirange.commonAncestorContainer.parentNode.nodeName)!= -1) {
          DomUtil.append(editor.container, $p)
        } else {
           if (this.orirange.commonAncestorContainer.id == this.id) {
@@ -68,9 +69,8 @@ export default class Editor {
           } else {
             DomUtil.insertAfter($p, this.orirange.commonAncestorContainer)
           }
-
        }
-        if (this.orirange.commonAncestorContainer.nodeName.toUpperCase() == 'BLOCKQUOTE') {
+        if (this.orirange.commonAncestorContainer.nodeName == 'BLOCKQUOTE') {
           DomUtil.remove(editor.container, 'BLOCKQUOTE')
         }
         S.createRange($p, false, editor)
