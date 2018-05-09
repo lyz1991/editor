@@ -30,7 +30,7 @@ export default {
       range.selectNode(editor.container.lastChild)
     }
 
-    range.collapse(true)
+    range.collapse(false)
     editor.orirange = range
     this.saveRange(range)
     range.detach()
