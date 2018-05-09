@@ -22,7 +22,9 @@ export default {
   initRange (editor) {
     /*有hr，最后一个是<p><br></p>*/
     const range = document.createRange()
-    if (editor.container.lastChild.innerHTML.trim() == '<br>' && editor.container.lastChild.previousSibling.nodeName == 'HR') {
+    if (editor.container.lastChild.innerHTML.trim() == '<br>'
+      && editor.container.lastChild.previousSibling
+      && editor.container.lastChild.previousSibling.nodeName == 'HR') {
       range.selectNode(editor.container.lastChild.previousSibling.previousSibling)
     } else {
       range.selectNode(editor.container.lastChild)

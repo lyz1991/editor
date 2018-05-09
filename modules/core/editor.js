@@ -26,6 +26,7 @@ export default class Editor {
   }
   _initDom (selector) {
     DomUtil.append(this.container, $('<p><br></p>')[0])
+    console.log(this.container.children)
   }
   _bindEvent (editor) {
     let composition
