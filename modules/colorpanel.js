@@ -20,9 +20,9 @@ export default {
  },
  bind(editor, container, name) {
    container.addEventListener('click', e => {
-     console.log(editor.orirange)
      if (DomUtil.getRangeInContainer(editor, editor.orirange)) {
        let color = e.target.style.backgroundColor
+       e.target.parentNode.style.display = 'none'
        S.saveRange(editor.orirange)
        Cmd.do(name, color, editor)
      }

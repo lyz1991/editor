@@ -17,14 +17,20 @@ export default {
     range.collapse(iscontent)
     editor.orirange = range
     this.saveRange(range)
+    range.detach()
   },
   initRange (editor) {
     /*有hr，最后一个是<p><br></p>*/
-    console.log('ss')
     const range = document.createRange()
-    range.selectNode(editor.container.lastChild)
-    range.collapse(false)
+    if (editor.container.lastChild.innerHTML.trim() == '<br>' && editor.container.lastChild.previousSibling.nodeName == 'HR') {
+      range.selectNode(editor.container.lastChild.previousSibling.previousSibling)
+    } else {
+      range.selectNode(editor.container.lastChild)
+    }
+
+    range.collapse(true)
     editor.orirange = range
     this.saveRange(range)
+    range.detach()
   }
 }
