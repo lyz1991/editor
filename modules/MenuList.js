@@ -68,7 +68,6 @@ export default class Menu {
     this.bind(editor, opt)
   }
   bind (editor, opt) {
-    let range = document.createRange()
     for (let value of opt['menus']) {
       let dom = editor.configContainer.querySelector(`li[name=${value}]`)
       this[value].events.forEach(env => {

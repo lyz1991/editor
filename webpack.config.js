@@ -14,23 +14,16 @@ const config = {
       {
         test: /\.less$/,
         loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
-      }
+      },
+      {
+        test: /\.scss$/,
+        loaders: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader', 'postcss-loader']
+      },
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css"
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: () => {
-          return [
-            require("autoprefixer")({
-              browsers: ['ie>=8','>1% in CN']
-            })
-          ]
-        }
-      }
     })
   ]
 }
