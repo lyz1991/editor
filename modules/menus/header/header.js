@@ -4,16 +4,13 @@ export default {
   events: [{
     type: 'mouseenter',
     cb (e) {
-      this.active = false
-      $(e.currentTarget).children('ul').style.display = this.active ? 'none' : 'block'
+      $(e.currentTarget).children('ul').style.display = 'block'
     }
   }, {
     type: 'mouseleave',
     cb (e) {
-      this.active = true
-      $(e.currentTarget).children('ul').style.display = this.active ? 'none' : 'block'
+      $(e.currentTarget).children('ul').style.display = 'none'
     }
   }],
-  tpl: '<li name="formatBlock"><i class="i-header"></i><i class="i-down"></i> </li>',
-  active: false
+  tpl: '<li name="formatBlock"><i class="i-header"></i><i class="i-down"></i> </li>'
 }

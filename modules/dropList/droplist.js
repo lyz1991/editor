@@ -18,6 +18,7 @@ export default class DropList {
   }
   bind (el, editor, name) {
     el.addEventListener('click', function (e) {
+      e.currentTarget.style.display = 'none'
       e.stopPropagation()
       S.saveRange(editor.orirange)
       cmd.do(name, e.target.getAttribute('value'), editor)
