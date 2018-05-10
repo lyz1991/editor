@@ -7,13 +7,17 @@ export default class Editor {
     this.container = DomUtil.query(selector)
     this.id = this.container.id
     this.configContainer = DomUtil.query(menuContainer)
+    this.compositioning = false
     this.change = DomUtil.debounce(() => {
-      if (this.container.innerHTML != this.record[this.record.length - 1]) {
-        console.log('变了')
-        this.record.push(this.container.innerHTML)
-        opt.change && opt.change()
-      } else {
-        console.log('没变')
+      console.log(this.compositioning)
+      if (!this.compositioning) {
+        if (this.container.innerHTML != this.record[this.record.length - 1]) {
+          console.log('变了')
+          this.record.push(this.container.innerHTML)
+          opt.change && opt.change()
+        } else {
+          console.log('没变')
+        }
       }
     }, 500)
     this.publish = opt.publish
@@ -29,23 +33,22 @@ export default class Editor {
     console.log(this.container.children)
   }
   _bindEvent (editor) {
-    let composition
     this.container.addEventListener('mousedown', e => {
       this.container.addEventListener('mouseleave', e => {
         this.orirange = window.getSelection().getRangeAt(0)
       })
     })
     this.container.addEventListener('compositionstart', () => {
-      composition = true
+      editor.compositioning = true
     })
     this.container.addEventListener('compositionend', () => {
-      composition = false
-      if (!composition) {
+      editor.compositioning = false
+      if (!editor.compositioning) {
         this.checkHtml(editor)
       }
     })
     this.container.addEventListener('keyup', e => {
-      if (!composition) {
+      if (!editor.compositioning) {
         this.checkHtml(editor)
       }
     })

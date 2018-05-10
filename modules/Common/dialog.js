@@ -29,7 +29,6 @@ export default class Dialog {
   }
   hide (cb) {
     this.id.style.display = 'none'
-    console.log(cb)
     cb && cb()
   }
 

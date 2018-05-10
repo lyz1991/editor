@@ -2,7 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
-module.exports = {
+const config = {
   entry: './editor.js',
   mode: 'development',
   output:  {
@@ -32,8 +32,10 @@ module.exports = {
         }
       }
     })
-  ],
-  optimization: {
+  ]
+}
+if (process.env.NODE_ENV === 'production') {
+  config.optimization = {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
@@ -48,3 +50,4 @@ module.exports = {
     ]
   }
 }
+module.exports = config
