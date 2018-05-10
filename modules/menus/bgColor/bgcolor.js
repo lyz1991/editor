@@ -1,7 +1,7 @@
 import { $ } from '../../util/dom'
 export default {
   name: 'BackColor',
-  tpl: '<li name="BackColor"><i class="i-bgcolor"></i><i class="i-down"></i> </li>',
+  tpl: '<li name="BackColor" class="tiptop" content="背景颜色"><i class="i-bgcolor"></i><i class="i-down"></i> </li>',
   events: [{
     type: 'mouseenter',
     cb (e) {

@@ -4,7 +4,7 @@ import { $ } from '../../util/dom'
 import S from '../../selections/selection'
 export default {
   name: 'font',
-  tpl: '<li name="font"><i class="i-font"></i><i class="i-down"></i> </li>',
+  tpl: '<li name="font" class="tiptop" content="字体"><i class="i-font"></i><i class="i-down"></i> </li>',
   active: false,
   events: [{
     type: 'mouseenter',

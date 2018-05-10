@@ -3,7 +3,7 @@ import S from '../../selections/selection'
 import Cmd from '../../cmd/cmd'
 export default {
   name: 'quote',
-  tpl: '<li name="quote"><i  class="i-quote"></i> </li>',
+  tpl: '<li name="quote" class="tipright" content="引用"><i  class="i-quote"></i> </li>',
   events: [{
     type: 'click',
     cb (e, editor) {

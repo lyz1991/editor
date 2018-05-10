@@ -3,7 +3,7 @@ import Cmd from '../../cmd/cmd'
 import S from '../../selections/selection'
 export default {
   name: 'italic',
-  tpl: '<li name="italic"><i class="i-italic"></i> </li>',
+  tpl: '<li name="italic" class="tipright" content="斜体"><i class="i-italic"></i> </li>',
   events: [{
     type: 'click',
     cb (e, editor) {

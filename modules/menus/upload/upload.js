@@ -18,7 +18,7 @@ const imgItem = src => `<div class="imgContainer">
 </div>`
 export default {
   name: 'upload',
-  tpl: '<li name="upload"><i class="i-upload"></i></li>',
+  tpl: '<li name="upload" class="tipright" content="插入图片"><i class="i-upload"></i></li>',
   events: [{
     type: 'click',
     cb (e, editor) {

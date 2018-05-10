@@ -63,10 +63,81 @@
 li {
   min-width: 35px;
   font-size: 12px;
-  padding: 3px 0px;
+  padding: 3px 0;
   text-align: center;
   cursor: pointer;
   position: relative;
+}
+.tipright:after {
+  width: 80px;
+  padding: 5px 0;
+  border-radius: 4px;
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: -85px;
+  background-color: rgba(0,0,0,.8);
+  color: white;
+  text-align: center;
+  content: attr(content);
+}
+.tiptop:after {
+  width: 80px;
+  padding: 5px 0;
+  border-radius: 4px;
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: -34px;
+  left: 50%;
+  margin-left: -40px;
+  background-color: rgba(0,0,0,.8);
+  color: white;
+  text-align: center;
+  content: attr(content);
+}
+
+.tiptop:before {
+  width:0;
+  height:0;
+  display: none;
+  position: absolute;
+  right: 50%;
+  margin-right: -8px;
+  top: 0;
+  z-index: 2;
+  border-width:8px 8px 0 ;
+  border-style:solid;
+  margin-top: -8px;
+  border-color: #333 transparent transparent;/*透明 灰 透明 透明 */
+  content: "";
+}
+.tipright:before {
+  width:0;
+  height:0;
+  display: none;
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  z-index: 2;
+  border-width:5px 8px 5px 0;
+  border-style:solid;
+  margin-top: -5px;
+  border-color:transparent #333 transparent transparent;/*透明 灰 透明 透明 */
+  content: "";
+}
+.tipright:hover:after {
+  display: block;
+}
+.tipright:hover:before {
+  display: block;
+}
+.tiptop:hover:after {
+  display: block;
+}
+.tiptop:hover:before {
+  display: block;
 }
 button {
   padding: 5px 15px;

@@ -3,7 +3,7 @@ import S from '../../selections/selection'
 import Cmd from '../../cmd/cmd'
 export default {
   name: 'undo',
-  tpl: '<li name="undo"><i class="i-undo"></i> </li>',
+  tpl: '<li name="undo" class="tipright" content="撤销"><i class="i-undo"></i> </li>',
   events: [{
     type: 'click',
     cb (e, editor) {

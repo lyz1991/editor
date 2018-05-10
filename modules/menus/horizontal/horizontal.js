@@ -3,7 +3,7 @@ import S from '../../selections/selection'
 import { $ } from '../../util/dom'
 export default {
   name: 'horizontal',
-  tpl: '<li name="horizontal"><i class="i-horizontal"></i> </li>',
+  tpl: '<li name="horizontal" class="tipright" content="分割线"><i class="i-horizontal"></i> </li>',
   events: [{
     type: 'click',
     cb (e, eidtor) {

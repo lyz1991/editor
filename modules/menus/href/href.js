@@ -25,7 +25,7 @@ const check = () => {
 export default {
   name: 'href',
   active: false,
-  tpl: '<li name="href"><i class="i-href"></i> </li>',
+  tpl: '<li name="href" class="tipright" content="超链接"><i class="i-href"></i> </li>',
   events: [{
     type: 'click',
     cb (e, editor) {
