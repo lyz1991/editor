@@ -1,5 +1,6 @@
 const path = require('path')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
   entry: './editor.js',
@@ -31,5 +32,19 @@ module.exports = {
         }
       }
     })
-  ]
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          minimize: true,
+          compress:{
+            warnings: false,
+            drop_debugger: true,
+            drop_console: true
+          }
+        }
+      })
+    ]
+  }
 }
