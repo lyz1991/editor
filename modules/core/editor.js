@@ -10,7 +10,6 @@ export default class Editor {
     this.compositioning = false
     this.imgupload = opt.imgupload
     this.change = DomUtil.debounce(() => {
-      console.log(this.compositioning)
       if (!this.compositioning) {
         if (this.container.innerHTML != this.record[this.record.length - 1]) {
           console.log('变了')

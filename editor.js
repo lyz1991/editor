@@ -6,6 +6,16 @@ new Editor('#editor', '#config', {
   change () {
 
   },
+  extend: {
+    underline: {
+      name: 'underline',
+      index:2,
+      tpl: '<li name="underline" class="tipright" content="下划线"><i class="i-underline"></i> </li>',
+      events: [{
+        type: 'click'
+      }]
+    }
+  },
   imgupload (result, files) {
    console.log(result)
     console.log(files)

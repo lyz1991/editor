@@ -37,6 +37,12 @@ export default class Menu {
     Color.init(DomUtil.query("li[name='BackColor']"), editor, 'BackColor')
   }
   init (editor, opt) {
+    if (opt.extend) {
+      for (let key in opt.extend) {
+        this[key] = opt.extend[key]
+        opt.menus.splice(opt.extend[key].index, 0, key)
+      }
+    }
     let frag = document.createDocumentFragment()
     for (let value of opt['menus'] ) {
       DomUtil.append(frag, $(this[value].tpl)[0])
@@ -72,7 +78,8 @@ export default class Menu {
       let dom = editor.configContainer.querySelector(`li[name=${value}]`)
       this[value].events.forEach(env => {
         dom.addEventListener(env.type, (e) => {
-          env.cb(e, editor)
+          env.cb && env.cb(e, editor)
+
         })
       })
     }
