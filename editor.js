@@ -6,6 +6,10 @@ new Editor('#editor', '#config', {
   change () {
 
   },
+  imgupload (result, files) {
+   console.log(result)
+    console.log(files)
+  },
   publish () {
     document.querySelector('#content').innerHTML = document.querySelector('#editor').innerHTML
     document.querySelector('#editor').innerHTML = ''

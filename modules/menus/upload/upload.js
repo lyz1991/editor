@@ -24,12 +24,13 @@ export default {
     cb (e, editor) {
       new Dialog().init(tpl, function () {
         document.querySelector('input[type="file"]').addEventListener('change', function () {
-
+          let self = this
           for (let i = 0, len = this.files.length; i < len; i++) {
             let fr = new FileReader()
             fr.onload = function () {
               editor.container.appendChild($(imgItem(this.result))[0])
               S.initRange(editor)
+              editor.imgupload && editor.imgupload(this.result, self.files)
             }
             fr.readAsDataURL(this.files[i])
           }

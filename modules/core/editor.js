@@ -8,6 +8,7 @@ export default class Editor {
     this.id = this.container.id
     this.configContainer = DomUtil.query(menuContainer)
     this.compositioning = false
+    this.imgupload = opt.imgupload
     this.change = DomUtil.debounce(() => {
       console.log(this.compositioning)
       if (!this.compositioning) {
