@@ -8,7 +8,7 @@ const tpl = `<div class="container">
 <span class="close">
 <i class="i-close" id="close"></i>
 </span>
-<div class="item inputitem">
+<div class="item upload">
 点击上传图片(可多张)
 <input type="file" multiple accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"/> 
 </div>

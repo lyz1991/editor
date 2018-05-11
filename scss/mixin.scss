@@ -1,0 +1,79 @@
+@mixin arrow($dire, $size: 8px, $color: #333){
+  width:0;
+  height:0;
+  border-style:solid;
+  content: "";
+  @if $dire == bottom {
+    border-width:$size $size 0 $size;
+    border-color: $color transparent transparent;/*透明 灰 透明 透明 */
+  }
+  @else if $dire == left {
+    border-width:$size $size $size 0;
+    border-color: transparent $color transparent;/*透明 灰 透明 透明 */
+  }
+  @else if $dire == right {
+    border-width:$size 0 $size $size;
+    border-color: transparent transparent transparent $color;/*透明 灰 透明 透明 */
+  }
+  @else if($dire == top) {
+    border-width:0 $size $size $size;
+    border-color: transparent transparent $color transparent;/*透明 灰 透明 透明 */
+  }
+}
+@mixin tip($content: '', $bg: rgba(0,0,0,.8), $color: white, $dire: top) {
+  &:hover {
+    &:after {
+      @extend %block
+    }
+    &:before {
+      @extend %block
+    }
+  }
+  &:after {
+    display: none;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    content: $content;
+    text-align: center;
+    background-color: $bg;
+    color: $color;
+    @if $dire == top {
+      left: 50%;
+      transform: translate(-50%, calc(-100% - 8px));
+    }
+    @else if($dire == right) {
+      right: 0;
+      transform: translate(calc(100% + 8px), 0);
+    }
+  }
+  &:before  {
+    display: none;
+    @if($dire == top) {
+      @include arrow(bottom);
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -100%);
+    }
+    @else if($dire == right) {
+      @include arrow(left);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(100%, -50%);
+    }
+  }
+
+}
+@mixin mordal($bg: hsla(0,0%,100%,.7)) {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: $bg;
+}

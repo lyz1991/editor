@@ -1,0 +1,20 @@
+%centervertical {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+%block {
+  display: block;
+}
+%close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+%center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

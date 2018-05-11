@@ -5,7 +5,6 @@ export default class DropList {
     let frag = document.createDocumentFragment()
     let ul = document.createElement('ul')
     ul.className = 'eleContainer'
-    ul.style.display = 'none'
     frag.appendChild(ul)
     for (let i = 0, len = list.length; i < len; i++) {
       let li = document.createElement('li')

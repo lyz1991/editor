@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 647758 */
+  src: url('//at.alicdn.com/t/font_647758_s7qq55urvalqsemi.eot');
+  src: url('//at.alicdn.com/t/font_647758_s7qq55urvalqsemi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_647758_s7qq55urvalqsemi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_647758_s7qq55urvalqsemi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_647758_s7qq55urvalqsemi.svg#iconfont') format('svg');
+}
+.i-bold,.i-header, .i-horizontal, .i-italic, .i-strike,.i-color,.i-restore,
+.i-bgcolor, .i-href, .i-face, .i-charactor, .i-font, .i-down,
+.i-undo, .i-quote,.i-publish, .i-close, .i-upload{
+  font-family: 'iconfont';
+  font-style: normal;
+  font-size: 12px;
+}
+.i-bold:before {
+  content: "\e6d9";
+}
+.i-italic:before {
+  content: "\e6f8";
+}
+.i-strike:before{
+  content: "\e65b";
+}
+.i-horizontal:before{
+  content: "\e652";
+}
+.i-header:before {
+  content: "\e66f";
+}
+.i-charactor:before {
+  content: '\e601';
+}
+.i-color:before {
+  content: "\e677";
+}
+.i-bgcolor:before{
+  content: '\e602';
+}
+.i-restore:before{
+  content: '\e600';
+}
+.i-href:before{
+  content: '\e63f';
+}
+.i-face:before{
+  content: '\e64e';
+}
+.i-font:before{
+  content: '\e605';
+}
+.i-undo:before{
+  content: '\e600';
+}
+.i-quote:before {
+  content: '\e63a';
+}
+.i-publish:before {
+  content: '\e611';
+}
+.i-down:before {
+  font-size: 10px;
+  position: absolute;
+  right: 0;
+  top:5px;
+  color: #999;
+  content: '\e688';
+}
+.i-close:before{
+  content: '\e607';
+}
+.i-upload:before {
+  content: '\e668';
+}

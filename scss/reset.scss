@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+button {
+  padding: 5px 15px;
+  background-color: #CCCCCC;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+}
+
+input[type='file'] {
+  opacity: 0;
+  display: block;
+  width:100%;
+  left: 0;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+}
+img {
+  width: 100%;
+  display: block;
+}
+li {
+  min-width: 35px;
+  font-size: 12px;
+  padding: 3px 0;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}

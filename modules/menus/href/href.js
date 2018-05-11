@@ -15,7 +15,10 @@ const tpl = `<div class="container">
 <span><i class="i-charactor"></i></span>
 <input type="text" id="val"> 
 </div>
-<button id="sure">确定</button></div>`
+<div class="item">
+<button id="sure">确定</button>
+</div>
+</div>`
 const check = () => {
   if (document.querySelector('#href').value && document.querySelector('#val').value) {
     return true

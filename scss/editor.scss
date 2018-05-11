@@ -1,0 +1,87 @@
+@import "./icon";
+@import "mixin";
+@import "place";
+@import "reset";
+@import "var";
+.container{
+  width: 90%;
+  margin: 50px auto;
+}
+.config {
+  display: flex;
+  background-color: $menubg;
+  border: 1px solid $borderCorlor;
+}
+.editor {
+  border: 1px solid $borderCorlor;
+  border-top: 0;
+  outline: 0;
+  height: 500px;
+  overflow: scroll;
+  padding: 40px 2rem;
+  p, h1, h2, h3, h4 {
+    margin: 0 auto;
+  }
+  blockquote {
+    display: block;
+    border-left: 8px solid #d0e5f2;
+    padding: 5px 10px;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 100%;
+    background-color: $menubg
+  }
+  hr {
+    margin: 0 auto 20px auto;
+    border-top: 1px solid $borderCorlor;
+  }
+}
+.eleContainer {
+  display: none;
+  position: absolute;
+  background-color: $menubg;
+  margin-top: 3px;
+}
+.color-container {
+  @extend .eleContainer;
+  width: 50px;
+  @extend %center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .color-item {
+    width: 15px;
+    min-width: auto;
+    height: 20px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+}
+.tipright{
+  @include tip(attr(content), rgba(0,0,0,.8), white, right);
+}
+.tiptop {
+  @include tip(attr(content), rgba(0,0,0,.8), white, top);
+}
+.dialog {
+  @include mordal();
+  .close {
+    @extend %close
+  }
+  .container {
+    width: 412px;
+    padding: 15px 0;
+    text-align: center;
+    @extend %centervertical;
+    box-shadow: 0 2px 8px $menubg;
+    .upload{
+      width: 60%;
+      color: white;
+      margin: 20px auto 20px auto;
+      background-color: #555;
+    }
+    .item {
+      position: relative;
+      padding: 10px;
+    }
+  }
+}

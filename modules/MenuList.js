@@ -78,7 +78,7 @@ export default class Menu {
       let dom = editor.configContainer.querySelector(`li[name=${value}]`)
       this[value].events.forEach(env => {
         dom.addEventListener(env.type, (e) => {
-          env.cb && env.cb(e, editor)
+          env.cb &&  env.cb(e, editor)
 
         })
       })

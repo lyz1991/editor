@@ -53,6 +53,7 @@ export default class Editor {
       }
     })
     this.container.addEventListener('keydown', e => {
+      console.log(e.keyCode)
       this.orirange = window.getSelection().getRangeAt(0)
       if (e.keyCode == 8) {
         if (DomUtil.trim(this.container.innerHTML) == '<p><br></p>') {
