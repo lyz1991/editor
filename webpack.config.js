@@ -12,6 +12,13 @@ const config = {
   module:{
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
         test: /\.less$/,
         loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
