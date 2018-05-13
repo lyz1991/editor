@@ -5,8 +5,8 @@ import DomUtil from './util/util'
 import { $ } from './util/dom'
 import strike from './menus/strike/strike'
 import h from './menus/header/header'
+import center from './menus/center/center'
 import horizontal from './menus/horizontal/horizontal'
-import DropList from './dropList/droplist'
 import BgColor from './menus/bgColor/bgcolor'
 import Color from './colorpanel'
 import face from './menus/face/face'
@@ -23,6 +23,7 @@ export default class Menu {
     this.strike = strike
     this.formatBlock = h
     this.color = color
+    this.center = center
     this.horizontal = horizontal
     this.BackColor = BgColor
     this.href = Href
@@ -48,29 +49,11 @@ export default class Menu {
       DomUtil.append(frag, $(this[value].tpl)[0])
     }
     DomUtil.append(editor.configContainer, frag)
-    new DropList([{
-      html: 'H1',
-      value: "<h1>"
-    },{
-      html: 'H2',
-      value: "<h2>"
-    },{
-      html: 'H3',
-      value: "<h3>"
-    },{
-      html: 'H4',
-      value: "<h4>"
-    }], editor.configContainer.querySelector("li[name='formatBlock']"), editor ,'formatBlock')
-    new DropList([{
-      html: '宋体',
-      value: "宋体"
-    },{
-      html: '微软雅黑',
-      value: "微软雅黑"
-    },{
-      html: 'Arial',
-      value: "Arial"
-    }], editor.configContainer.querySelector("li[name='font']"), editor, 'FontName')
+    for (let i in this) {
+      if (this[i].init) {
+        this[i].init(editor)
+      }
+    }
     this.bind(editor, opt)
   }
   bind (editor, opt) {

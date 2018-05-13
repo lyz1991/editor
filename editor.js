@@ -2,7 +2,7 @@ import Editor from './modules/core/editor'
 require('./scss/editor.scss')
 new Editor('#editor', '#config', {
   menus: ['formatBlock', 'bold', 'italic', 'strike',
-    'horizontal', 'color', 'BackColor', 'href', 'upload','face', 'font', 'undo', 'quote', 'publish'],
+    'horizontal', 'color', 'BackColor', 'href', 'upload','face', 'center', 'font', 'undo', 'quote', 'publish'],
   change () {
 
   },

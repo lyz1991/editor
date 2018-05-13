@@ -8,7 +8,7 @@
 }
 .i-bold,.i-header, .i-horizontal, .i-italic, .i-strike,.i-color,.i-restore,
 .i-bgcolor, .i-href, .i-face, .i-charactor, .i-font, .i-down,
-.i-undo, .i-quote,.i-publish, .i-close, .i-upload{
+.i-undo, .i-quote,.i-publish, .i-close, .i-upload, .i-justfyleft{
   font-family: 'iconfont';
   font-style: normal;
   font-size: 12px;
@@ -71,4 +71,7 @@
 }
 .i-upload:before {
   content: '\e668';
+}
+.i-justfyleft:before {
+  content: '\e62c';
 }

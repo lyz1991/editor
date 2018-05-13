@@ -1,5 +1,6 @@
 import S from '../selections/selection'
 import cmd from '../cmd/cmd'
+import {$} from '../util/dom'
 export default class DropList {
   constructor (list,  container, editor, name) {
     let frag = document.createDocumentFragment()
@@ -8,19 +9,20 @@ export default class DropList {
     frag.appendChild(ul)
     for (let i = 0, len = list.length; i < len; i++) {
       let li = document.createElement('li')
-      li.setAttribute('value', list[i].value)
-      li.innerHTML = list[i].html
+      li.appendChild(list[i].elem)
       ul.appendChild(li)
     }
     container.appendChild(frag)
-    this.bind(ul, editor, name)
+    this.bind(editor, list)
   }
-  bind (el, editor, name) {
-    el.addEventListener('click', function (e) {
-      e.currentTarget.style.display = 'none'
-      e.stopPropagation()
-      S.saveRange(editor.orirange)
-      cmd.do(name, e.target.getAttribute('value'), editor)
+  bind (editor, list) {
+    list.forEach(function (ls) {
+      ls.elem.addEventListener('click', function (e) {
+        $(e.currentTarget).parentsUntil('ul').style.display = 'none'
+        e.stopPropagation()
+        S.saveRange(editor.orirange)
+        ls.onclick()
+      })
     })
   }
 }

@@ -33,5 +33,14 @@ class jQ {
     }
     return {}
   }
+  parentsUntil (tag) {
+    let p = this[0]
+    while (p = p.parentNode) {
+      if (tag.toUpperCase() == p.nodeName) {
+        return p
+      }
+    }
+    return null
+  }
 }
 export let $ = selector => new jQ(selector)
