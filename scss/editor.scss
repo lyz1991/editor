@@ -11,6 +11,9 @@
   display: flex;
   background-color: $menubg;
   border: 1px solid $borderCorlor;
+  li[name='center'] ul {
+    width: 80px;
+  }
 }
 .editor {
   border: 1px solid $borderCorlor;
@@ -39,6 +42,7 @@
 .eleContainer {
   display: none;
   position: absolute;
+  @extend %center;
   background-color: $menubg;
   margin-top: 3px;
 }

@@ -19,17 +19,19 @@ export default {
     }
   }],
   init (editor) {
-    new DropList([{
-      elem: $('<p>宋体</p>')[0],
-      onclick: (e) => {
-        this.do('宋体','FontName', editor)
-      }
-    },{
-      elem: $('<p>微软雅黑</p>')[0],
-      onclick: (e) => {
-        this.do('微软雅黑','FontName', editor)
-      }
-    }], editor.configContainer.querySelector("li[name='font']"), editor,)
+    new DropList({
+      list: [{
+        elem: $('<p>宋体</p>')[0],
+        onclick: (e) => {
+          this.do('宋体','FontName', editor)
+        }
+      },{
+        elem: $('<p>微软雅黑</p>')[0],
+        onclick: (e) => {
+          this.do('微软雅黑','FontName', editor)
+        }
+      }]
+    }, editor.configContainer.querySelector("li[name='font']"), editor)
   },
   do (value, name, editor) {
     Cmd.do(name, value, editor)
